@@ -1,4 +1,6 @@
 package com.niit.shoppingCart.controller;
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,8 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-
+import com.google.gson.Gson;
 import com.niit.shoppingCart.dao.SupplierDAO;
+import com.niit.shoppingCart.model.Category;
 import com.niit.shoppingCart.model.Supplier;
 
 @Controller
@@ -29,14 +32,14 @@ public class SupplierController {
 //		return "Supplier";
 //	}
 	
-	@RequestMapping("/supplier")
-	public ModelAndView getRegister(Model m)
-	{
-		m.addAttribute("supplier",new Supplier());
-		ModelAndView model = new ModelAndView("supplier");
-		
-		return model;
-	}
+//	@RequestMapping("/supplier")
+//	public ModelAndView getRegister(Model m)
+//	{
+//		m.addAttribute("supplier",new Supplier());
+//		ModelAndView model = new ModelAndView("supplier");
+//		
+//		return model;
+//	}
 	
 	@RequestMapping(value="supplier/add", method=RequestMethod.POST)
 	public String addUser(Model model, @Valid @ModelAttribute("supplier") Supplier supplier)
@@ -46,12 +49,14 @@ public class SupplierController {
 		return "redirect:/supplier";
 	}
 	@RequestMapping(value = "/supplier", method = RequestMethod.GET)
-	public String listSupplier(Model model)
-	{
-		model.addAttribute("supplier", supplier);
-		model.addAttribute("supplierList",this.supplierDAO.list());
-		return "supplier";
-	
+	public ModelAndView newSupplier(Model m1) {
+		m1.addAttribute("supplier", new Supplier());
+		List<Supplier> suppliers = supplierDAO.list();
+		String json = new Gson().toJson(suppliers);
+		ModelAndView model = new ModelAndView("supplier");
+		//m1.addAttribute("categoryList",this.categoryDAO.listCategories());
+		model.addObject("suppliers", json);
+		return model;
 	}
 	@RequestMapping("supplier/remove/{sid}")
 	public String deleteSupplier(@PathVariable("sid") String id, ModelMap model) throws Exception {

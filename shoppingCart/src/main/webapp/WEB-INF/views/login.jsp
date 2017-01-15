@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ include file="header.jsp" %>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -10,6 +11,18 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <title>Login</title>
+<style>
+.container {
+padding:auto;
+margin:auto;
+
+}
+.form-group {
+padding:auto;
+align:center;
+}
+
+</style>
 </head>
 <body>
 <!-- <form>
@@ -27,6 +40,7 @@
   <button type="submit" class="btn btn-default">Submit</button>
 </form>
  -->
+ <div class="container">
   <form  action="<c:url value='j_spring_security_check'/>"  method="POST" role="form">
        <c:if test="${not empty loginerror}">
        <p class="loginerror" >${loginerror}</p>
@@ -38,18 +52,20 @@
           <h2 style="color:#000000">Please Login</h2>
 	     <hr class="colorgraph"> 
         <div class="row">
-				<div class="col-sm-12 ">
+				<div class="col-sm-6 ">
 					<div class="form-group">
-						<input style="background-color:#FFFFE0" type="text"  name="username" id="name" class="form-control input-lg" placeholder="Name" tabindex="1" />
+					<label for=" name"> Name:</label>
+						<input style="background-color:#FFFFE0" type="text"  name="username" id="name" class="form-control" placeholder="Name" tabindex="1" />
 					</div>
 				</div>
 			
 				
 			</div>
 			 <div class="row">
-				<div class="col-xs-12">
+				<div class="col-xs-6">
 					<div class="form-group">
-						<input style="background-color:#FFFFE0" type="password"  name="password" id="pwd" class="form-control input-lg" placeholder="Password" tabindex="2" />
+					<label for="pwd">Password:</label>
+						<input style="background-color:#FFFFE0" type="password"  name="password" id="pwd" class="form-control" placeholder="Password" tabindex="2" />
 					</div>
 				</div>
 			
@@ -63,8 +79,14 @@
 
 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 
-			
+	</div>		
         </form>
     
 </body>
+<br>
+<br>
+<br>
+<br>
+<br>
 </html>
+<%@ include file="footer.jsp" %>

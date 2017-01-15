@@ -48,7 +48,6 @@ public class HomeController
 	@RequestMapping("/admin")
 	public String getAdmin()
 	{
-		System.out.println("ADmin page");
 		return "admin";
 	}
 	@RequestMapping(value="/user")

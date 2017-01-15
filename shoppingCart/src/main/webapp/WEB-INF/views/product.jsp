@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ include file="header.jsp" %>
       <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
       <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
@@ -48,17 +49,7 @@ font-family: "Times New Roman", Times, serif;
 </style>
 </head>
 <body>
-<nav class="navbar navbar-inverse" style="margin: 20px 0px 0px 0px;background-color:#20B2AA">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <h2 class="navbar-brand" style="color:#F5F5DC;margin:5px 0px 0px 0px">FURNITURES</h2>
-    </div>
-    <ul class="nav navbar-nav">
-      <li><a style="color:#F5F5DC;margin:5px 0px 0px 0px" href="admin"><span class="glyphicon glyphicon-home"></span></a></li>
-     
-     </ul>
-      <ul class="nav navbar-nav" style="text-align:center">   
-       <li><h1 style="color:#F5F5DC;margin:5px 0px 0px 400px" ><center>Products</center></h1></li>
+
            		
 	 </ul>
      <ul class="nav navbar-nav navbar-right">       

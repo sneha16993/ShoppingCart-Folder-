@@ -30,10 +30,12 @@ private Category category;
 private Supplier supplier;
 
 public Category getCategory() {
+	
 	return category;
-}
+	}
 public void setCategory(Category category) {
 	this.category = category;
+	
 }
 public Supplier getSupplier() {
 	return supplier;

@@ -16,19 +16,43 @@
       color: #f4511e;
   }
      /* Add a gray background color and some padding to the footer */
-    footer 
+   footer 
     {
       background-color:black;
       padding: 15 px;
+/*      position: fixed; */
+     
     }
+    .wrapper {
+  min-height: 100%;
+
+  /* Equal to height of footer */
+  /* But also accounting for potential margin-bottom of last child */
+  margin-bottom: -50px;
+}
+.footer a {text-decoration:none;}
+.footer a:hover{text-decoration:underline;
  </style>
 </head>
 <body>
+<br>
+
+<div class="wrapper">
+<div class="push">
 <footer class="container-fluid text-center">
   <a href="#" title="To Top">
     <span class="glyphicon glyphicon-chevron-up"></span>
   </a>
+    <div data-role="footer" style="text-align:center;">
+    <a href="#" class="ui-btn ui-corner-all ui-shadow ui-icon-plus ui-btn-icon-left">Add Me On Facebook</a>
+    <a href="#" class="ui-btn ui-corner-all ui-shadow ui-icon-plus ui-btn-icon-left">Add Me On Twitter</a>
+    <a href="#" class="ui-btn ui-corner-all ui-shadow ui-icon-plus ui-btn-icon-left">Add Me On Instagram</a>
+
   <p>FOOTER Theme</p> 
+    </div>
+</div>
 </footer>
+</div>
+  </div>
 </body>
 </html>

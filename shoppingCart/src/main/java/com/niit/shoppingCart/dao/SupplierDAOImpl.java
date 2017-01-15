@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 
-
+import com.niit.shoppingCart.model.Category;
 import com.niit.shoppingCart.model.Supplier;
 
 @Repository("supplierDAO")
@@ -57,7 +57,7 @@ public class SupplierDAOImpl implements SupplierDAO
 		@SuppressWarnings("rawtypes")
 		Query query=sessionFactory.getCurrentSession().createQuery(hql);
 		@SuppressWarnings("unchecked")
-		List<Supplier> list= query.list();
+		List<Supplier> list= (List<Supplier>)query.list();
 		if(list!=null && !list.isEmpty())
 		{
 			return list.get(0);
@@ -66,6 +66,7 @@ public class SupplierDAOImpl implements SupplierDAO
 		
 	}
 	
+	@SuppressWarnings("deprecation")
 	@Transactional
 	public List<Supplier> list()
 	{

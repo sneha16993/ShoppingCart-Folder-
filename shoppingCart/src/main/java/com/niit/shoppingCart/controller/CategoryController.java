@@ -1,5 +1,7 @@
 package com.niit.shoppingCart.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.google.gson.Gson;
 import com.niit.shoppingCart.dao.CategoryDAO;
 import com.niit.shoppingCart.model.Category;
 
@@ -29,15 +32,15 @@ public class CategoryController {
 //		return "category";
 //	}
 	
-	@RequestMapping("/category")
-	public ModelAndView getRegister(Model m)
-	{
-		m.addAttribute("category",new Category());
-		ModelAndView model = new ModelAndView("category");
-		
-		return model;
-	}
-	
+//	@RequestMapping("/category")
+//	public ModelAndView getRegister(Model m)
+//	{
+//		m.addAttribute("category",new Category());
+//		ModelAndView model = new ModelAndView("category");
+//		
+//		return model;
+//	}
+//	
 	@RequestMapping(value="category/add", method=RequestMethod.POST)
 	public String addCategory(Model model, @Valid @ModelAttribute("category") Category category)
 	{
@@ -46,12 +49,14 @@ public class CategoryController {
 		return "redirect:/category";
 	}
 	@RequestMapping(value = "/category", method = RequestMethod.GET)
-	public String listCategories(Model model)
-	{
-		model.addAttribute("category", category);
-		model.addAttribute("categoryList",this.categoryDAO.list());
-		return "category";
-	
+	public ModelAndView newCategory(Model m1) {
+		m1.addAttribute("category", new Category());
+		List<Category> categories = categoryDAO.list();
+		String json = new Gson().toJson(categories);
+		ModelAndView model = new ModelAndView("category");
+		//m1.addAttribute("categoryList",this.categoryDAO.listCategories());
+		model.addObject("categories", json);
+		return model;
 	}
 	@RequestMapping("category/remove/{cid}")
 	public String deleteCategory(@PathVariable("cid") String id, ModelMap model) throws Exception {

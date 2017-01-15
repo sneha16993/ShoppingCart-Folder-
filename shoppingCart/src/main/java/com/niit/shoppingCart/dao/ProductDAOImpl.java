@@ -68,6 +68,7 @@ public class ProductDAOImpl implements ProductDAO {
 			
 		}
 		
+		@SuppressWarnings("deprecation")
 		@Transactional
 		public List<Product> list()
 		{

@@ -12,12 +12,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
 import com.niit.shoppingCart.dao.CategoryDAO;
-import com.niit.shoppingCart.dao.CategoryDAOImpl;
 import com.niit.shoppingCart.dao.ProductDAO;
 import com.niit.shoppingCart.dao.SupplierDAO;
 import com.niit.shoppingCart.model.Category;
@@ -47,15 +47,9 @@ public class ProductController {
 	private Path path;
 	
 
-	@RequestMapping("/product")
-	public ModelAndView getRegister(Model m)
-	{
-		m.addAttribute("product",new Product());
-		ModelAndView model = new ModelAndView("product");
-		return model;
-	}
 	
-	@RequestMapping(value="product/add", method=RequestMethod.POST)
+	
+	@RequestMapping(value="/product/add", method=RequestMethod.POST)
 	public String addProduct(Model model, @Valid @ModelAttribute("product") Product product,HttpServletRequest request)
 	{
 		System.out.println(product);

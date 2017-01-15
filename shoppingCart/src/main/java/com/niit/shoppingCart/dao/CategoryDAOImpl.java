@@ -56,6 +56,7 @@ public class CategoryDAOImpl implements CategoryDAO
 	public Category getByName(String name)
 	{
 		String hql="from Category where cname="+"'"+name+"'";
+		System.out.println("Query is: "+hql);
 		@SuppressWarnings("rawtypes")
 		Query query=sessionFactory.getCurrentSession().createQuery(hql);
 		@SuppressWarnings("unchecked")
@@ -69,6 +70,7 @@ public class CategoryDAOImpl implements CategoryDAO
 		
 	}
 	
+	@SuppressWarnings("deprecation")
 	@Transactional
 	public List<Category> list()
 	{

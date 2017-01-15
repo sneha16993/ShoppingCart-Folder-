@@ -18,15 +18,15 @@ public class SupplierTest {
 	
 	SupplierDAO supplierDAO=(SupplierDAO)context.getBean("supplierDAO");
 	Supplier supplier=(Supplier)context.getBean("supplier");
-//	supplier.setSid("123");
-//	supplier.setSname("GAURI KHAN");
-//	supplier.setSphno("34563");
-//	supplier.setSaddr("delhi");
+	supplier.setSid("200");
+	supplier.setSname("ABC");
+	supplier.setSphno("458455");
+	supplier.setSaddr("MUMBAI");
 	
-	//supplierDAO.addSupplier(supplier);
-	List<Supplier> list= (List<Supplier>)supplierDAO.getByName("fhjfh");
-	System.out.println(list.get(0).getSid()+"  "+list.get(0).getSname()+" "+list.get(0).getSaddr()+" "+list.get(0).getSphno());
-	context.close();
+	supplierDAO.addSupplier(supplier);
+	//List<Supplier> list= (List<Supplier>)supplierDAO.getByName("fhjfh");
+	//System.out.println(list.get(0).getSid()+"  "+list.get(0).getSname()+" "+list.get(0).getSaddr()+" "+list.get(0).getSphno());
+	//context.close();
 	
 	}
 

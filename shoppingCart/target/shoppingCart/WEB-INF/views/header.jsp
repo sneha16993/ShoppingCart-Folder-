@@ -14,9 +14,13 @@
       margin-bottom: 10 ;
       border-radius: 10 ;
     } 
+    .img
+    {
+   max-height:100px;
+    }
        .navbar { 
     margin-bottom: 10; 
-    background-color: black; 
+    background-color:white; 
      z-index: 9999; 
      border: 0; 
      font-size: 12px !important; 
@@ -30,7 +34,8 @@
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">WebSiteName</a>
+      <a class="navbar-brand" href="#"><img class="img-responsive2" src="<c:url value="/resources/images/create_thumb.png"/>" style="max-width:50px; margin-top: -10px;">
+        </a>
     </div>
     <ul class="nav navbar-nav">
       <li class="active"><a href="#">Home</a></li>
