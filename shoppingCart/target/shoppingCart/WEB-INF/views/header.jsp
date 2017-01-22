@@ -20,7 +20,6 @@
     }
        .navbar { 
     margin-bottom: 10; 
-    background-color:white; 
      z-index: 9999; 
      border: 0; 
      font-size: 12px !important; 
@@ -31,10 +30,11 @@
  </style>
 </head>
 <body>
+<div class="w3-container w3-teal">
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#"><img class="img-responsive2" src="<c:url value="/resources/images/create_thumb.png"/>" style="max-width:50px; margin-top: -10px;">
+      <a class="navbar-brand" href="#"><img class="img-responsive2" src="<c:url value="/resources/images/fabulous-white.png"/>" style="max-width:100px; margin-top: -10px;">
         </a>
     </div>
     <ul class="nav navbar-nav">
@@ -62,7 +62,7 @@
       	</c:if>
       	
       	<c:if test="${pageContext.request.userPrincipal.name  == 'admin'}">
-       		<li><a style="color:#F5F5DC" href="<c:url value="/admin" />">VIEW ALL</a></li>
+       		<li><a style="color:#F5F5DC0" href="<c:url value="/admin" />">VIEW ALL</a></li>
        	</c:if>
        	
        		<li><a style="color:#F5F5DC">HELLO, ${pageContext.request.userPrincipal.name}</a></li>
@@ -83,6 +83,8 @@
 <!--     <li role="presentation"><a role="menuitem" href="admin">Administrator</a></li> -->
      
   </div>
+  
      </nav>
+       </div>
 </body>
 </html>

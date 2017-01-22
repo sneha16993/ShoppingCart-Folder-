@@ -14,6 +14,7 @@ import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import com.niit.shoppingCart.model.Cart;
 import com.niit.shoppingCart.model.Category;
 import com.niit.shoppingCart.model.Product;
 import com.niit.shoppingCart.model.Supplier;
@@ -40,6 +41,7 @@ public class ApplicationContext
 		Properties properties =new Properties();
 		properties.put("hibernate.show_sql","true");
 		properties.put("hibernate.dialect","org.hibernate.dialect.H2Dialect");
+		properties.put("hibernate.hbm2ddl.auto","update");
 		return properties;
 	}
 	
@@ -52,7 +54,7 @@ public class ApplicationContext
 		sessionBuilder.addAnnotatedClass(Category.class);
 		sessionBuilder.addAnnotatedClass(Supplier.class);
 		sessionBuilder.addAnnotatedClass(Product.class);
-		
+		sessionBuilder.addAnnotatedClass(Cart.class);
 
 
 		System.out.println("connected");

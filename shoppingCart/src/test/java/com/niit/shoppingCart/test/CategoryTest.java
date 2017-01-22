@@ -27,9 +27,13 @@ public class CategoryTest
 	//categoryDAO.delete("123");
 	//List<Category> list = (List<Category>)categoryDAO.getCategory("123");
 	
-	//System.out.println(categoryDAO.getCategory("123"));
-	List<Category> list= (List<Category>) categoryDAO.getByName("dfgg");
-	System.out.println(list.get(0).getCid()+" "+list.get(0).getCname()+" "+list.get(0).getCdesc());
-	context.close();
+	System.out.println(categoryDAO.getCategory("123"));
+	//List<Category> list= (List<Category>) categoryDAO.getByName("nhjghjg");
+	category = categoryDAO.getByName("nhjghjg");
+	System.out.println(category.getCdesc());
+	//context.close();
+	
+	
+	
 	}	
 }

@@ -25,7 +25,8 @@ import com.niit.shoppingCart.model.Product;
 import com.niit.shoppingCart.model.Supplier;
 
 @Controller
-public class ProductController {
+public class ProductController 
+{
 	@Autowired
 	ProductDAO productDAO;
 	
@@ -49,16 +50,17 @@ public class ProductController {
 
 	
 	
-	@RequestMapping(value="/product/add", method=RequestMethod.POST)
+	@RequestMapping(value="product_add", method=RequestMethod.POST)
 	public String addProduct(Model model, @Valid @ModelAttribute("product") Product product,HttpServletRequest request)
 	{
-		System.out.println(product);
+		System.out.println("Product by Name : "+product.getCategory().getCname());
 		Category category=categoryDAO.getByName(product.getCategory().getCname());
-		System.out.println(category);
-		categoryDAO.addCategory(category);
+		System.out.println(category.getCname());
+		//categoryDAO.addCategory(category);
 		
 		Supplier supplier=supplierDAO.getByName(product.getSupplier().getSname());
-		supplierDAO.addSupplier(supplier);
+		System.out.println(supplier.getSname());
+		//supplierDAO.addSupplier(supplier);
 		
 		product.setCategory(category);
 		product.setSupplier(supplier);
@@ -101,8 +103,9 @@ public class ProductController {
 		return "product";
 	
 	}
-	@RequestMapping("product/remove/{pid}")
-	public String deleteProduct(@PathVariable("pid") String id, ModelMap model) throws Exception {
+	@RequestMapping("product_remove-{pid}")
+	public String deleteProduct(@PathVariable("pid") String id, ModelMap model) throws Exception
+	{
 
 		try {
 			productDAO.delete(id);
@@ -116,8 +119,9 @@ public class ProductController {
 	}
 	
 
-	@RequestMapping("product/edit/{pid}")
-	public String editProduct(@PathVariable("pid") String id, Model model) {
+	@RequestMapping("product_edit-{pid}")
+	public String editProduct(@PathVariable("pid") String id, Model model)
+	{
 		System.out.println("editProduct");
 		model.addAttribute("product", this.productDAO.getProduct(id));
 		model.addAttribute("productList", this.productDAO.list());
@@ -126,5 +130,20 @@ public class ProductController {
 		return "product";
 	}
 	
+	@RequestMapping(value="product/get/{pid}")
+	public String getSelectedProduct(@PathVariable("pid") String id, Model model,RedirectAttributes redirectAttributes) 
+	{
+		redirectAttributes.addFlashAttribute("selectedProduct", productDAO.getProduct(id));
+		return "redirect:/productItem";
+	}
+	
+	@RequestMapping(value="/productItem",method=RequestMethod.GET)
+	public String productItem(@ModelAttribute("selectedProduct") final Product selectedProduct, Model model)
+	{
+		model.addAttribute("selectedProduct", selectedProduct);
+		model.addAttribute("categoryList", this.categoryDAO.list());
+		return "item";
+	}
+
 
 }

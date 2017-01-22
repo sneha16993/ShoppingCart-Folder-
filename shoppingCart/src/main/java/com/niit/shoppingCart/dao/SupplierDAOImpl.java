@@ -3,6 +3,7 @@ package com.niit.shoppingCart.dao;
 import java.util.List;
 
 import org.hibernate.Criteria;
+import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,16 +54,21 @@ public class SupplierDAOImpl implements SupplierDAO
  @Transactional
 	public Supplier getByName(String name)
 	{
-		String hql="from Supplier where sname="+"'"+ name +"'";
-		@SuppressWarnings("rawtypes")
-		Query query=sessionFactory.getCurrentSession().createQuery(hql);
-		@SuppressWarnings("unchecked")
-		List<Supplier> list= (List<Supplier>)query.list();
-		if(list!=null && !list.isEmpty())
-		{
-			return list.get(0);
+		try {
+			String hql="from Supplier where sname="+"'"+ name +"'";
+			@SuppressWarnings("rawtypes")
+			Query query=sessionFactory.getCurrentSession().createQuery(hql);
+			@SuppressWarnings("unchecked")
+			List<Supplier> list= query.list();
+			
+				return list.get(0);
+		} catch (HibernateException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
 		}
-		return null;
+		
+		
 		
 	}
 	

@@ -3,6 +3,7 @@ package com.niit.shoppingCart.dao;
 import java.util.List;
 
 import org.hibernate.Criteria;
+import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,21 +53,23 @@ public class CategoryDAOImpl implements CategoryDAO
 		}
 		return null;
     }
-    @Transactional
+    @SuppressWarnings("deprecation")
+	@Transactional
 	public Category getByName(String name)
 	{
-		String hql="from Category where cname="+"'"+name+"'";
-		System.out.println("Query is: "+hql);
-		@SuppressWarnings("rawtypes")
-		Query query=sessionFactory.getCurrentSession().createQuery(hql);
-		@SuppressWarnings("unchecked")
-		List<Category> list= query.list();
-		if(list!=null && !list.isEmpty())
-		{
-			System.out.println(list.get(0).getCid()+" "+list.get(0).getCname()+" "+list.get(0).getCdesc());
+		try {
+			String hql="FROM Category where cname='"+name+"'";
+			System.out.println("Query is: "+hql);
+			@SuppressWarnings("rawtypes")
+			Query query=sessionFactory.getCurrentSession().createQuery(hql);
+			@SuppressWarnings("unchecked")
+			List<Category> list= query.list();
 			return list.get(0);
+		} catch (HibernateException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
 		}
-		return null;
 		
 	}
 	

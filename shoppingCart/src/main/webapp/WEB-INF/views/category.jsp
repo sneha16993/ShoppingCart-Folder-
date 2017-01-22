@@ -8,17 +8,7 @@
 
 <html>
 <head>
-			<script>
-						var f = ${categories};
-						angular.module('repeatSample', []).controller('repeatController',
-						function($scope) {
-							$scope.categories = f;
-							$scope.sort = function(keyname) {
-							$scope.sortKey = keyname; 
-							$scope.reverse = !$scope.reverse; 
-							}
-						});
-					</script>
+			
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
@@ -118,100 +108,34 @@ font-family: "Times New Roman", Times, serif;
 
 <div class="container">
 
-<%-- <h3><center>CATEGORY LIST</center></h3> --%>
-<!-- <br> -->
-<%-- <c:if test="${!empty categoryList}"> --%>
-<!-- 	<table  class="table" align="center" bordercolor="#800080" BORDER=10> -->
-<!-- 			<tr bgcolor="#F0F8FF"> -->
-<!-- 				<th style="color:black" width="125" bgcolor="#F0F8FF" align="center">CATEGORY ID</th> -->
-<!-- 				<th style="color:black" width="125" align="center">CATEGORY NAME</th> -->
-<!-- 				<th style="color:black" width="190" align="center">CATEGORY DESCRIPTION</th> -->
-<!-- 				<th style="color:black" width="100" align="center">EDIT</th> -->
-<!-- 				<th style="color:black" width="100" align="center">DELETE</th> -->
-<!-- 			</tr> -->
-<%-- 					<c:forEach items="${categoryList}" var="category"> --%>
-<!-- 				<tr bgcolor="#FFFFFF"> -->
-<%-- 					<td  style="color:#000000;font-size:120%" align="center">${category.cid}</td> --%>
-<%-- 					<td  style="color:#000000;font-size:120%" align="center">${category.cname}</td> --%>
-<%-- 					<td style="color:#000000;font-size:120%" align="center">${category.cdesc}</td> --%>
-<%-- 					<td style="color:#000000;font-size:120%" align="center"><a href="<c:url value='category/edit/${category.cid}' />"><button type="button" class="btn btn-warning">Edit</button></a></td> --%>
-<%-- 					<td style="color:#000000;font-size:120%" align="center"><a href="<c:url value='category/remove/${category.cid}' />"><button type="button" class="btn btn-danger">Delete</button></a></td> --%>
-<!-- 				</tr> -->
-<%-- 			</c:forEach> --%>
-<!-- 		</table> -->
-<%-- 	</c:if> --%>
-<!-- 	</div> -->
+<h3><center>CATEGORY LIST</center></h3>
+<br>
+<c:if test="${!empty categoryList}">
+	<table  class="table" align="center" bordercolor="#800080" BORDER=10>
+			<tr bgcolor="#F0F8FF">
+				<th style="color:black" width="125" bgcolor="#F0F8FF" align="center">CATEGORY ID</th>
+				<th style="color:black" width="125" align="center">CATEGORY NAME</th>
+				<th style="color:black" width="190" align="center">CATEGORY DESCRIPTION</th>
+				<th style="color:black" width="100" align="center">EDIT</th>
+				<th style="color:black" width="100" align="center">DELETE</th>
+			</tr>
+					<c:forEach items="${categoryList}" var="category">
+				<tr bgcolor="#FFFFFF">
+					<td  style="color:#000000;font-size:120%" align="center">${category.cid}</td>
+					<td  style="color:#000000;font-size:120%" align="center">${category.cname}</td>
+					<td style="color:#000000;font-size:120%" align="center">${category.cdesc}</td>
+					<td style="color:#000000;font-size:120%" align="center"><a href="<c:url value='category/edit/${category.cid}' />"><button type="button" class="btn btn-warning">Edit</button></a></td>
+					<td style="color:#000000;font-size:120%" align="center"><a href="<c:url value='category/remove/${category.cid}' />"><button type="button" class="btn btn-danger">Delete</button></a></td>
+				</tr>
+			</c:forEach>
+		</table>
+	</c:if>
+	</div>
 
 <!-- /*angular js*/ -->
  <!-- Listing Categories -->
   		
-       	<div  ng-app="repeatSample" class="section">
-       		<div class="container">
-				<!-- Angular script -->
-			
-		
-
-					<div class="bs-component" ng-controller="repeatController">
-					<form class="form-inline">
-						<div class="form-group">
-							<label>Search Category</label> 
-							<div class="input-group">
-								<input type="text" ng-model="search" class="form-control" placeholder="Search">
-								<span class="input-group-btn">
-        							<button class="btn btn-secondary" type="button">Go!</button>
-      							</span>
-      						</div>
-						</div>
-					</form>
-			
-					<br>
-			
-					<hr>
-			
-					<table class="table table-striped table-hover">
-						<thead>
-							<tr>
-								<th ng-click="sort('cid')">CATEGORY ID
-									<span class="glyphicon sort-icon" ng-show="sortKey=='cid'"
-									ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
-								</th>						
-								<th ng-click="sort('cname')">CATEGORY NAME 
-									<span class="glyphicon sort-icon" ng-show="sortKey=='cname'"
-									ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
-								</th>
-						
-								<th ng-click="sort('cdesc')">CATEGORY DESCRIPTION
-									<span class="glyphicon sort-icon" ng-show="sortKey=='cdesc'"
-									ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
-								</th>
-						
-								
- 								<th>EDIT 
- 									<span class="glyphicon sort-icon"></span> 
-								</th> 
-						
-								<th>DELETE 
-									<span class="glyphicon sort-icon"></span>
-								</th>
-							</tr>
-						</thead>
-						<tbody>
-						
-							<tr ng-repeat="category in categories|orderBy:sortKey:reverse|filter:search">
-								<td>{{category.cid}}</td>
-								<td>{{category.cname}}</td>
-								<td>{{category.cdesc}}</td>
-								
- 								<td style="color:#000000;font-size:120%" align="center"><a href="<c:url value='category/edit/{{category.cid}}' />"><button type="button" class="btn btn-warning">Edit</button></a></td> 
-								<td style="color:#000000;font-size:120%" align="center"><a href="<c:url value='category/remove/{{category.cid}}' />"><button type="button" class="btn btn-danger">Delete</button></a></td>
-							</tr>
-						</tbody>
-					</table>
-
-					</div>
-				</div>
-			</div>  
-
+       
 </body>
 </html>
 

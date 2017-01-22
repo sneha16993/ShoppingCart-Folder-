@@ -14,9 +14,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.google.gson.Gson;
+
 import com.niit.shoppingCart.dao.CategoryDAO;
 import com.niit.shoppingCart.model.Category;
+import com.niit.shoppingCart.util.Util;
 
 @Controller
 public class CategoryController {
@@ -44,6 +45,9 @@ public class CategoryController {
 	@RequestMapping(value="category/add", method=RequestMethod.POST)
 	public String addCategory(Model model, @Valid @ModelAttribute("category") Category category)
 	{
+		Util util=new Util();
+		String id=util.removeComma(category.getCid());
+		category.setCid(id);
 		categoryDAO.addCategory(category);
 		
 		return "redirect:/category";
@@ -52,10 +56,10 @@ public class CategoryController {
 	public ModelAndView newCategory(Model m1) {
 		m1.addAttribute("category", new Category());
 		List<Category> categories = categoryDAO.list();
-		String json = new Gson().toJson(categories);
+//		String json = new Gson().toJson(categories);
 		ModelAndView model = new ModelAndView("category");
-		//m1.addAttribute("categoryList",this.categoryDAO.listCategories());
-		model.addObject("categories", json);
+		m1.addAttribute("categoryList",this.categoryDAO.list());
+//		model.addObject("categories", json);
 		return model;
 	}
 	@RequestMapping("category/remove/{cid}")

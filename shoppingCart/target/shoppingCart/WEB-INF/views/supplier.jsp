@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ include file="header.jsp" %>
       <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
       <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
@@ -7,6 +8,8 @@
 
 <html>
 <head>
+
+					<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
@@ -35,7 +38,6 @@ table, th, td {
     background-color:#cc0052 ;
     } */
 h2{
-color:#F5F5DC;
 font-family: "Times New Roman", Times, serif;
 }
 
@@ -48,29 +50,6 @@ font-family: "Times New Roman", Times, serif;
 </style>
 </head>
 <body>
-<nav class="navbar navbar-inverse" style="margin: 20px 0px 0px 0px;background-color:#20B2AA">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <h2 class="navbar-brand" style="color:#F5F5DC;margin:5px 0px 0px 0px">FURNITURES</h2>
-    </div>
-    <ul class="nav navbar-nav">
-      <li><a style="color:#F5F5DC;margin:5px 0px 0px 0px" href="admin"><span class="glyphicon glyphicon-home"></span></a></li>
-     
-     </ul>
-      <ul class="nav navbar-nav" style="text-align:center">   
-       <li><h1 style="color:#F5F5DC;margin:5px 0px 0px 400px" ><center>Suppliers</center></h1></li>
-           		
-	 </ul>
-     <ul class="nav navbar-nav navbar-right">       
-      <li class="divider-vertical"></li>
-		<c:if test="${pageContext.request.userPrincipal.name != null}"> 		
-			  <li><h4 class="text-right" style="color:#F5F5DC;margin:20px 0px 0px 0px">HELLO, ${pageContext.request.userPrincipal.name}</h4></li>
-			<li><a  style="color:#F5F5DC;margin:5px 0px 0px 0px" href="<c:url value="/j_spring_security_logout" />"> <span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
-		</c:if>    
-								
-     </ul>     
-  </div>
-</nav>
 
 <div class="container-fluid" style="align:center; margin: 40px 0px 0px 150px">
 <div class="col-md-4">
@@ -78,7 +57,7 @@ font-family: "Times New Roman", Times, serif;
    <div class="span12">
    
 
-<h2><center>ADD Supplier</center></h2>
+<h2><center>ADD SUPPLIER</center></h2>
 <c:url var="addAction"  value="/supplier/add"></c:url>
 
 <%-- <form:form action="${addAction}" commandName="Supplier"> --%>
@@ -118,7 +97,7 @@ font-family: "Times New Roman", Times, serif;
 				<td align="right" colspan="2"><c:if test="${!empty supplier.sname}">
 									<input style= "align:middle" class="btn btn-primary btn-md" type="submit" value="<spring:message text="Edit Supplier"/>"/>
 								</c:if>
-								<c:if test="${empty Supplier.sname}">
+								<c:if test="${empty supplier.sname}">
 									<input style= "align:middle"  class="btn btn-primary btn-md" type="submit" value="<spring:message text="Add Supplier"/>"/>
 								</c:if>
 				</td>
@@ -157,9 +136,10 @@ font-family: "Times New Roman", Times, serif;
 		</table>
 	</c:if>
 	</div>
-
-
+	
  
 
 </body>
 </html>
+
+  <%@ include file="footer.jsp" %>

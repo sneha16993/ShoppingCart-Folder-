@@ -28,6 +28,9 @@ public class SupplierTest {
 	//System.out.println(list.get(0).getSid()+"  "+list.get(0).getSname()+" "+list.get(0).getSaddr()+" "+list.get(0).getSphno());
 	//context.close();
 	
+	supplier = supplierDAO.getByName("fhjfh");
+	System.out.println(supplier.getSphno());
+	
 	}
 
 }

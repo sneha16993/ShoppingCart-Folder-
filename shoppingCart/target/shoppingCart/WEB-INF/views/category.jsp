@@ -8,9 +8,11 @@
 
 <html>
 <head>
+			
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Category</title>
 <script type="text/javascript" src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
@@ -55,12 +57,6 @@ font-family: "Times New Roman", Times, serif;
   <div class="row-fluid">
    <div class="span12">
    
-<br>
-<br>
-<br>
-<br>
-<br>
-<%-- <h2><center>ADD CATEGORY</center></h2> --%>
 <c:url var="addAction"  value="/category/add"></c:url>
 
 <form:form action="${addAction}" commandName="category">
@@ -68,7 +64,6 @@ font-family: "Times New Roman", Times, serif;
 <table class="table table-condensed">
 	<tr bgcolor=#F0F8FF>
 		<td><form:label style="color:#000000" path="cid"><spring:message text="ID"/></form:label></td>
-		
 		
 		<c:choose>
 			<c:when test="${!empty category.cid}">
@@ -137,8 +132,11 @@ font-family: "Times New Roman", Times, serif;
 	</c:if>
 	</div>
 
-
- 
-
+<!-- /*angular js*/ -->
+ <!-- Listing Categories -->
+  		
+       
 </body>
 </html>
+
+<%@ include file="footer.jsp" %>

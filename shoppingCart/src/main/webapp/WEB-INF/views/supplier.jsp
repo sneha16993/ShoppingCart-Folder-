@@ -8,17 +8,7 @@
 
 <html>
 <head>
-<script>
-						var f = ${categories};
-						angular.module('repeatSample', []).controller('repeatController',
-						function($scope) {
-							$scope.suppliers = f;
-							$scope.sort = function(keyname) {
-							$scope.sortKey = keyname; 
-							$scope.reverse = !$scope.reverse; 
-							}
-						});
-					</script>
+
 					<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
@@ -119,105 +109,34 @@ font-family: "Times New Roman", Times, serif;
 	</div>
 	</div>
 <br>
-<!-- <div class="container"> -->
+<div class="container">
 
-<%-- <h3><center>Supplier LIST</center></h3> --%>
-<!-- <br> -->
-<%-- <c:if test="${!empty supplierList}"> --%>
-<!-- 	<table  class="table" align="center" bordercolor="#800080" BORDER=10> -->
-<!-- 			<tr bgcolor="#F0F8FF"> -->
-<!-- 				<th style="color:black" width="125" bgcolor="#F0F8FF" align="center">Supplier ID</th> -->
-<!-- 				<th style="color:black" width="125" align="center">Supplier NAME</th> -->
-<!-- 				<th style="color:black" width="190" align="center">Supplier Phone Number</th> -->
-<!-- 				<th style="color:black" width="190" align="center">Supplier Address</th> -->
-<!-- 				<th style="color:black" width="100" align="center">EDIT</th> -->
-<!-- 				<th style="color:black" width="100" align="center">DELETE</th> -->
-<!-- 			</tr> -->
-<%-- 					<c:forEach items="${supplierList}" var="supplier"> --%>
-<!-- 				<tr bgcolor="#FFFFFF"> -->
-<%-- 					<td  style="color:#000000;font-size:120%" align="center">${supplier.sid}</td> --%>
-<%-- 					<td  style="color:#000000;font-size:120%" align="center">${supplier.sname}</td> --%>
-<%-- 					<td style="color:#000000;font-size:120%" align="center">${supplier.sphno}</td> --%>
-<%-- 					<td style="color:#000000;font-size:120%" align="center">${supplier.saddr}</td> --%>
-<%-- 					<td style="color:#000000;font-size:120%" align="center"><a href="<c:url value='supplier/edit/${supplier.sid}' />"><button type="button" class="btn btn-warning">Edit</button></a></td> --%>
-<%-- 					<td style="color:#000000;font-size:120%" align="center"><a href="<c:url value='supplier/remove/${supplier.sid}' />"><button type="button" class="btn btn-danger">Delete</button></a></td> --%>
-<!-- 				</tr> -->
-<%-- 			</c:forEach> --%>
-<!-- 		</table> -->
-<%-- 	</c:if> --%>
-<!-- 	</div> -->
-	<div  ng-app="repeatSample" class="section">
-       		<div class="container">
-				<!-- Angular script -->
-			
-		
-
-					<div class="bs-component" ng-controller="repeatController">
-					<form class="form-inline">
-						<div class="form-group">
-							<label>Search Supplier</label> 
-							<div class="input-group">
-								<input type="text" ng-model="search" class="form-control" placeholder="Search">
-								<span class="input-group-btn">
-        							<button class="btn btn-secondary" type="button">Go!</button>
-      							</span>
-      						</div>
-						</div>
-					</form>
-			
-					<br>
-			
-					<hr>
-			
-					<table class="table table-striped table-hover">
-						<thead>
-							<tr>
-								<th ng-click="sort('sid')">Supplier ID
-									<span class="glyphicon sort-icon" ng-show="sortKey=='sid'"
-									ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
-								</th>						
-								<th ng-click="sort('sname')">Supplier NAME 
-									<span class="glyphicon sort-icon" ng-show="sortKey=='sname'"
-									ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
-								</th>
-						
-								<th ng-click="sort('sphno')">Supplier Phone
-									<span class="glyphicon sort-icon" ng-show="sortKey=='sphno'"
-									ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
-								</th>
-						<th ng-click="sort('saddr')">Supplier Address
-									<span class="glyphicon sort-icon" ng-show="sortKey=='saddr'"
-									ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
-								</th>
-						
-								
- 								<th>EDIT 
- 									<span class="glyphicon sort-icon"></span> 
-								</th> 
-						
-								<th>DELETE 
-									<span class="glyphicon sort-icon"></span>
-								</th>
-							</tr>
-						</thead>
-						<tbody>
-						
-							<tr ng-repeat="supplier in suppliers|orderBy:sortKey:reverse|filter:search">
-								<td>{{supplier.sid}}</td>
-								<td>{{supplier.sname}}</td>
-								<td>{{supplier.sphno}}</td>
-								<td>{{supplier.saddr}}</td>
-								
- 								<td style="color:#000000;font-size:120%" align="center"><a href="<c:url value='supplier/edit/{{supplier.sid}}' />"><button type="button" class="btn btn-warning">Edit</button></a></td> 
-								<td style="color:#000000;font-size:120%" align="center"><a href="<c:url value='supplier/remove/{{supplier.sid}}' />"><button type="button" class="btn btn-danger">Delete</button></a></td>
-							</tr>
-						</tbody>
-					</table>
-
-					</div>
-				</div>
-			</div>  
-
+<h3><center>Supplier LIST</center></h3>
+<br>
+<c:if test="${!empty supplierList}">
+	<table  class="table" align="center" bordercolor="#800080" BORDER=10>
+			<tr bgcolor="#F0F8FF">
+				<th style="color:black" width="125" bgcolor="#F0F8FF" align="center">Supplier ID</th>
+				<th style="color:black" width="125" align="center">Supplier NAME</th>
+				<th style="color:black" width="190" align="center">Supplier Phone Number</th>
+				<th style="color:black" width="190" align="center">Supplier Address</th>
+				<th style="color:black" width="100" align="center">EDIT</th>
+				<th style="color:black" width="100" align="center">DELETE</th>
+			</tr>
+					<c:forEach items="${supplierList}" var="supplier">
+				<tr bgcolor="#FFFFFF">
+					<td  style="color:#000000;font-size:120%" align="center">${supplier.sid}</td>
+					<td  style="color:#000000;font-size:120%" align="center">${supplier.sname}</td>
+					<td style="color:#000000;font-size:120%" align="center">${supplier.sphno}</td>
+					<td style="color:#000000;font-size:120%" align="center">${supplier.saddr}</td>
+					<td style="color:#000000;font-size:120%" align="center"><a href="<c:url value='supplier/edit/${supplier.sid}' />"><button type="button" class="btn btn-warning">Edit</button></a></td>
+					<td style="color:#000000;font-size:120%" align="center"><a href="<c:url value='supplier/remove/${supplier.sid}' />"><button type="button" class="btn btn-danger">Delete</button></a></td>
+				</tr>
+			</c:forEach>
+		</table>
+	</c:if>
+	</div>
+	
  
 
 </body>

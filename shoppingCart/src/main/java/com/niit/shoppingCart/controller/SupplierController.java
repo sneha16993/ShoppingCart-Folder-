@@ -13,10 +13,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.google.gson.Gson;
+
 import com.niit.shoppingCart.dao.SupplierDAO;
 import com.niit.shoppingCart.model.Category;
 import com.niit.shoppingCart.model.Supplier;
+import com.niit.shoppingCart.util.Util;
 
 @Controller
 public class SupplierController {
@@ -44,6 +45,9 @@ public class SupplierController {
 	@RequestMapping(value="supplier/add", method=RequestMethod.POST)
 	public String addUser(Model model, @Valid @ModelAttribute("supplier") Supplier supplier)
 	{
+		Util util=new Util();
+		String id=util.removeComma(supplier.getSid());
+		supplier.setSid(id);
 		supplierDAO.addSupplier(supplier);
 		
 		return "redirect:/supplier";
@@ -52,10 +56,10 @@ public class SupplierController {
 	public ModelAndView newSupplier(Model m1) {
 		m1.addAttribute("supplier", new Supplier());
 		List<Supplier> suppliers = supplierDAO.list();
-		String json = new Gson().toJson(suppliers);
+//		String json = new Gson().toJson(suppliers);
 		ModelAndView model = new ModelAndView("supplier");
-		//m1.addAttribute("categoryList",this.categoryDAO.listCategories());
-		model.addObject("suppliers", json);
+		m1.addAttribute("supplierList",this.supplierDAO.list());
+//		model.addObject("suppliers", json);
 		return model;
 	}
 	@RequestMapping("supplier/remove/{sid}")

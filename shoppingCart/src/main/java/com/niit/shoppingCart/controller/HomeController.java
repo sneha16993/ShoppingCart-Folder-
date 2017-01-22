@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.niit.shoppingCart.dao.CategoryDAO;
 import com.niit.shoppingCart.dao.UserDAO;
+import com.niit.shoppingCart.model.Category;
 import com.niit.shoppingCart.model.User;
 @Controller
 public class HomeController
@@ -22,12 +24,28 @@ public class HomeController
 	@Autowired
 	User user;
 	
+	@Autowired
+	CategoryDAO categoryDAO;
+	
+	
+	@Autowired
+	Category category;
+	
 	@RequestMapping("/")
-	public String getLanding()
+	public String getLanding(Model m)
 	{
+		m.addAttribute("category", category);
+		m.addAttribute("categoryList",this.categoryDAO.list());
 		return "index";
 	}
 
+	@RequestMapping("/onLoad")
+	public String backToHome(Model m)
+	{
+		m.addAttribute("category", category);
+		m.addAttribute("categoryList",this.categoryDAO.list());
+		return "index";
+	}
 	@RequestMapping("/register")
 	public ModelAndView getRegister(Model m)
 	{
@@ -48,7 +66,7 @@ public class HomeController
 	@RequestMapping("/admin")
 	public String getAdmin()
 	{
-		return "admin";
+		return "admin1";
 	}
 	@RequestMapping(value="/user")
 	public String getUser()
