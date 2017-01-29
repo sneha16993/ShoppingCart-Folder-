@@ -88,7 +88,8 @@ font-family: "Times New Roman", Times, serif;
 				</tr>
 				
 				<tr bgcolor="#F0F8FF">
-				<td align="right" colspan="2"><c:if test="${!empty category.cname}">
+				<td align="right" colspan="2">
+				<c:if test="${!empty category.cname}">
 									<input style= "align:middle" class="btn btn-primary btn-md" type="submit" value="<spring:message text="Edit Category"/>"/>
 								</c:if>
 								<c:if test="${empty category.cname}">

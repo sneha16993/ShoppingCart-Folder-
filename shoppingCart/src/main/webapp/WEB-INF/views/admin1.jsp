@@ -6,7 +6,7 @@
 <head>
 <style>
 .button {
-    background-color: #4CAF50; /* Green */
+    background-color: white; /* Green */
     border: none;
     color: white;
     padding: 16px 32px;
@@ -23,11 +23,11 @@
 .button1 {
     background-color: white; 
     color: black; 
-    border: 2px solid #4CAF50;
+    border: 2px solid #008CBA;
 }
 
 .button1:hover {
-    background-color: #4CAF50;
+    background-color: #87CEFA;
     color: white;
 }
 
@@ -38,7 +38,17 @@
 }
 
 .button2:hover {
-    background-color: red;
+    background-color: 	#87CEFA;
+    color: white;
+}
+.button3 {
+    background-color: white; 
+    color: black; 
+    border: 2px solid #008CBA;
+}
+
+.button3:hover {
+    background-color: #87CEFA;
     color: white;
 }
 </style>
@@ -54,3 +64,4 @@
 </div>	
 </body>
 </html>
+ <%@ include file="footer.jsp" %>

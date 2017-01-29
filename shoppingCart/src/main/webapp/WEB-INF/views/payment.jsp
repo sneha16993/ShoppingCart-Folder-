@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+     <%@ include file="header.jsp" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -42,10 +43,10 @@ font-family: "Times New Roman", Times, serif;
 </style>
 </head>
 <body>
- <div style="color:#000000;margin:20px 0px 0px 70px">
-    <a style="color:#000000;font-size:2.0em" href="onLoad"><span class="glyphicon glyphicon-home"></span></a>
-    <h1 style="color:black"><center >PAYMENT DETAILS</center></h1>
-   </div>
+<!--  <div style="color:#000000;margin:20px 0px 0px 70px"> -->
+<!--     <a style="color:#000000;font-size:2.0em" href="onLoad"><span class="glyphicon glyphicon-home"></span></a> -->
+<!--     <h1 style="color:black"><center >PAYMENT DETAILS</center></h1> -->
+<!--    </div> -->
 
 <div class="container" style="align:center; margin: 20px 0px 0px 0px">
            

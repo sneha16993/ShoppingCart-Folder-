@@ -81,7 +81,7 @@ public class CategoryController {
 	public String editCategory(@PathVariable("cid") String id, Model model) {
 		System.out.println("editCategory");
 		model.addAttribute("category", this.categoryDAO.getCategory(id));
-		model.addAttribute("listCategory", this.categoryDAO.list());
+		model.addAttribute("categoryList", this.categoryDAO.list());
 		return "category";
 	}
 	

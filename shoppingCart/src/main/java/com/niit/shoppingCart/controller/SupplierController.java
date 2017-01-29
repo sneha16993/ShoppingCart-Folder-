@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-
+import com.niit.shoppingCart.dao.CategoryDAO;
 import com.niit.shoppingCart.dao.SupplierDAO;
 import com.niit.shoppingCart.model.Category;
 import com.niit.shoppingCart.model.Supplier;
@@ -23,6 +23,9 @@ import com.niit.shoppingCart.util.Util;
 public class SupplierController {
 	@Autowired
 	SupplierDAO supplierDAO;
+	
+	@Autowired
+	CategoryDAO categoryDAO;
 	
 	@Autowired
 	Supplier supplier;
@@ -59,6 +62,7 @@ public class SupplierController {
 //		String json = new Gson().toJson(suppliers);
 		ModelAndView model = new ModelAndView("supplier");
 		m1.addAttribute("supplierList",this.supplierDAO.list());
+		m1.addAttribute("categoryList",this.categoryDAO.list());
 //		model.addObject("suppliers", json);
 		return model;
 	}
@@ -77,11 +81,11 @@ public class SupplierController {
 	}
 	
 
-	@RequestMapping("supplier/edit/{sid}")
+	@RequestMapping("supplier_edit-{sid}")
 	public String editSupplier(@PathVariable("sid") String id, Model model) {
 		System.out.println("editSupplier");
 		model.addAttribute("supplier", this.supplierDAO.getSupplier(id));
-		model.addAttribute("listSupplier", this.supplierDAO.list());
+		model.addAttribute("supplierList", this.supplierDAO.list());
 		return "supplier";
 	}
 	

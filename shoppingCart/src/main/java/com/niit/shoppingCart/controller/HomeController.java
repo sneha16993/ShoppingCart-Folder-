@@ -58,20 +58,29 @@ public class HomeController
 	@RequestMapping(value="register/add", method=RequestMethod.POST)
 	public String addUser(Model model, @Valid @ModelAttribute("user") User user)
 	{
+		model.addAttribute("categoryList",this.categoryDAO.list());
 		userDAO.addUser(user);
 		
 		return "redirect:/";
 	}
 	
 	@RequestMapping("/admin")
-	public String getAdmin()
+	public String getAdmin(Model m1)
 	{
+		m1.addAttribute("categoryList",this.categoryDAO.list());
 		return "admin1";
 	}
 	@RequestMapping(value="/user")
-	public String getUser()
+	public String getUser(Model m)
 	{
+		m.addAttribute("categoryList",this.categoryDAO.list());
 		return "login";
+	}
+	@RequestMapping(value="/aboutUs")
+	public String getAboutUs(Model m)
+	{
+		m.addAttribute("categoryList",this.categoryDAO.list());
+		return "aboutUs";
 	}
 	
 	@RequestMapping(value="/login")

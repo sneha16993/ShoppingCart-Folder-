@@ -34,6 +34,9 @@ public class CartController
  CategoryDAO categoryDAO;
  
  @Autowired(required=true)
+ Category category;
+ 
+ @Autowired(required=true)
  ProductDAO productDAO;
  
  @Autowired(required=true)
@@ -53,10 +56,10 @@ public class CartController
 		{
 		model.addAttribute("cart",new Cart());
 		model.addAttribute("cartList",this.cartDAO.userCartList(principal.getName()));
-		model.addAttribute("category",new Category());
+		model.addAttribute("category",category);
 		model.addAttribute("categoryList",this.categoryDAO.list());
 		model.addAttribute("displayCart","true");
-		
+				
 		
 		int i,j=0;
 		int s=0;

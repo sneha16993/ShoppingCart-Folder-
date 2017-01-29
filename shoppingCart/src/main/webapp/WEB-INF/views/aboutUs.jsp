@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+       <%@ include file="header.jsp" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -29,7 +30,7 @@ background-size:     cover;
     <div class="container">
         <div class="row">
             <div class="col-xs-2 col-md-3" style="color:#EEE8AA;margin:0px 100px 0px 100px">
-               <a style="color:#EEE8AA;font-size:2.0em" href="onLoad"><span class="glyphicon glyphicon-home"></span></a>
+<!--                <a style="color:#EEE8AA;font-size:2.0em" href="onLoad"><span class="glyphicon glyphicon-home"></span></a> -->
             </div>
             <div class="col-xs-4 col-md-8">
             
@@ -108,3 +109,4 @@ background-size:     cover;
 
 </body>
 </html>
+   <%@ include file="footer.jsp" %>

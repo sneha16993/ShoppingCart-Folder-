@@ -33,7 +33,7 @@ background-repeat:no-repeat;
 			
 			<div class="container" style="align:center;margin:30px 0px 0px 180px">
 			<div class="row">
-				<c:if test="${!empty selectedProduct.p_name}">
+				<c:if test="${!empty selectedProduct.pname}">
 				  <div class="col-md-10 col-md-offset-1">
 
                     <div class="panel panel-info">
@@ -52,12 +52,12 @@ background-repeat:no-repeat;
 						</tr>
 						<tr>
 <%-- 							<td align="left" ><font color="grey">${selectedProduct.id}</font></td> --%>
-							<td align="left" ><font color="black">${selectedProduct.p_name}</font></td>
-							<td align="left" ><font color="black">${selectedProduct.p_description}</font></td>
-							<td align="left" ><font color="black">${selectedProduct.p_price}</font></td>
-							<td align="left" ><font color="black">${selectedProduct.category.c_Name}</font></td>
-							<td align="left" ><font color="black">${selectedProduct.supplier.s_Name}</font></td>
-							<td align="left" ><img src="<c:url value="/resources/images/${selectedProduct.p_id}.jpg"/>" /></td>
+							<td align="left" ><font color="black">${selectedProduct.pname}</font></td>
+							<td align="left" ><font color="black">${selectedProduct.pdesc}</font></td>
+							<td align="left" ><font color="black">${selectedProduct.pprice}</font></td>
+							<td align="left" ><font color="black">${selectedProduct.category.cname}</font></td>
+							<td align="left" ><font color="black">${selectedProduct.supplier.sname}</font></td>
+							<td align="left" ><img src="<c:url value="/resources/images/${selectedProduct.pid}.jpg"/>" /></td>
 						
 <%-- 							<td align="left" ><a href="<c:url value='cart/add/${selectedProduct.p_id}' />"><button type="button" class="btn btn-primary">Add to Cart</button></a></td> --%>
 							
@@ -70,7 +70,7 @@ background-repeat:no-repeat;
 					<div class="row text-center">
 						
 						<div class="col-xs-3">
-							<a style="align:right" href="<c:url value='cart/add/${selectedProduct.p_id}' />"><button  type="button" class="btn btn-primary">Add to Cart</button></a>
+							<a style="align:right" href="<c:url value='cart/add/${selectedProduct.pid}' />"><button  type="button" class="btn btn-primary">Add to Cart</button></a>
 						</div>
 					</div>
      				</div>  

@@ -112,7 +112,7 @@ font-family: "Times New Roman", Times, serif;
 							<h4 class="text-right"> Total: ${sum}</h4>
 						   </div>
 						<div class="col-xs-3">
-							<a href="checkout" type="button" class="btn btn-success btn-block">
+							<a href="checkOut" type="button" class="btn btn-success btn-block">
 								Checkout
 							</a>
 						</div>

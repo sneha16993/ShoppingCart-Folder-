@@ -16,15 +16,23 @@
       color: #f4511e;
   }
      /* Add a gray background color and some padding to the footer */
+ 
    footer 
     {
       background-color:black;
       padding: 15 px;
-/*      position: fixed; */
+position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #efefef;
+  text-align: center;
      
     }
-    .wrapper {
+    wrapper {
   min-height: 100%;
+  position :relative
 
   /* Equal to height of footer */
   /* But also accounting for potential margin-bottom of last child */

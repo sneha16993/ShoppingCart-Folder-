@@ -70,34 +70,34 @@
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
     <div class="item active">
-      <img src="<c:url value="/resources/images/images.jpg"/>" alt="Chania">
+      <img src="<c:url value="/resources/images/03.jpg"/>" alt="Chania">
       <div class="carousel-caption">
-        <h3>Chania</h3>
-        <p>The atmosphere in Chania has a touch of Florence and Venice.</p>
+        <h3>Featured Collection</h3>
+        <p>Nevada</p>
       </div>
     </div>
 
     <div class="item">
-      <img src="<c:url value="/resources/images/images(5).jpg"/>" alt="Chania">
+      <img src="<c:url value="/resources/images/images_1.jpg"/>" alt="Chania">
       <div class="carousel-caption">
-        <h3>Chania</h3>
-        <p>The atmosphere in Chania has a touch of Florence and Venice.</p>
+        <h3>Featured Collection</h3>
+        <p>Nexus</p>
       </div>
     </div>
 
     <div class="item">
-      <img src="<c:url value="/resources/images/images(3).jpg"/>" alt="Flower">
+      <img src="<c:url value="/resources/images/images (6).jpg"/>" alt="Flower">
       <div class="carousel-caption">
-        <h3>Flowers</h3>
-        <p>Beatiful flowers in Kolymbari, Crete.</p>
+        <h3>Featured Collection</h3>
+        <p>Armana</p>
       </div>
     </div>
 
   <div class="item">
       <img src="<c:url value="/resources/images/images(4).jpg"/>" alt="Flower">
       <div class="carousel-caption">
-        <h3>Flowers</h3>
-        <p>Beatiful flowers in Kolymbari, Crete.</p>
+        <h3>Featured Collection</h3>
+        <p>Cotton Chic</p>
       </div>
     </div>
 

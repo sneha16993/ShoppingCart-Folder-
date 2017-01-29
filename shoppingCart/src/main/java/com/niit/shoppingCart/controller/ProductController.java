@@ -23,6 +23,7 @@ import com.niit.shoppingCart.dao.SupplierDAO;
 import com.niit.shoppingCart.model.Category;
 import com.niit.shoppingCart.model.Product;
 import com.niit.shoppingCart.model.Supplier;
+import com.niit.shoppingCart.util.Util;
 
 @Controller
 public class ProductController 
@@ -68,6 +69,9 @@ public class ProductController
 		product.setCategory_id(category.getCid());
 		product.setSupplier_id(supplier.getSid());
 		
+		Util util=new Util();
+		String id=util.removeComma(product.getPid());
+		product.setPid(id);
 		productDAO.addProduct(product);
 		
 		
@@ -140,8 +144,11 @@ public class ProductController
 	@RequestMapping(value="/productItem",method=RequestMethod.GET)
 	public String productItem(@ModelAttribute("selectedProduct") final Product selectedProduct, Model model)
 	{
-		model.addAttribute("selectedProduct", selectedProduct);
+		model.addAttribute("category", category);
 		model.addAttribute("categoryList", this.categoryDAO.list());
+		System.out.println("Loading Item Page");
+		model.addAttribute("selectedProduct", selectedProduct);
+		
 		return "item";
 	}
 
