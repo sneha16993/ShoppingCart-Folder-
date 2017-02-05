@@ -58,10 +58,10 @@ font-family: "Times New Roman", Times, serif;
    
 
 <h2><center>ADD SUPPLIER</center></h2>
-<c:url var="addAction"  value="/supplier/add"></c:url>
+<c:url var="addAction"  value="supplier/add"></c:url>
 
-<%-- <form:form action="${addAction}" commandName="Supplier"> --%>
-<form:form method="POST" commandName="supplier" action="supplier/add">
+<form:form action="${addAction}" commandName="supplier"> 
+<%-- <form:form method="POST" commandName="supplier" action="supplier/add"> --%>
 <table class="table table-condensed">
 	<tr bgcolor=#F0F8FF>
 		<td><form:label style="color:#000000" path="sid"><spring:message text="ID"/></form:label></td>
@@ -129,7 +129,7 @@ font-family: "Times New Roman", Times, serif;
 					<td  style="color:#000000;font-size:120%" align="center">${supplier.sname}</td>
 					<td style="color:#000000;font-size:120%" align="center">${supplier.sphno}</td>
 					<td style="color:#000000;font-size:120%" align="center">${supplier.saddr}</td>
-					<td style="color:#000000;font-size:120%" align="center"><a href="<c:url value='supplier/edit/${supplier.sid}' />"><button type="button" class="btn btn-warning">Edit</button></a></td>
+					<td style="color:#000000;font-size:120%" align="center"><a href="<c:url value='supplier_edit-${supplier.sid}' />"><button type="button" class="btn btn-warning">Edit</button></a></td>
 					<td style="color:#000000;font-size:120%" align="center"><a href="<c:url value='supplier/remove/${supplier.sid}' />"><button type="button" class="btn btn-danger">Delete</button></a></td>
 				</tr>
 			</c:forEach>

@@ -43,7 +43,7 @@
       width: 100%; /* Set width to 100% */
       margin: auto;
       min-height:200px; 
-      max-height:600px; 
+      max-height:450px; 
       
   }
 

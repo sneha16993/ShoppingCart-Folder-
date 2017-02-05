@@ -54,7 +54,7 @@
 <!--     <li role="presentation"><a role="menuitem" href="register">Sign Up</a></li> -->
 
 <ul class="nav navbar-nav">
-      <li class="active"><a style="color:#F5F5DC" href="#">HOME</a></li>
+      <li class="active"><a style="color:#F5F5DC" href="onLoad">HOME</a></li>
       <c:forEach items="${categoryList}" var="category">
       <li class="dropdown">
       <a class="dropdown-toggle" data-toggle="dropdown" href=${category.cname}>${category.cname}<span class="caret"></span> </a>

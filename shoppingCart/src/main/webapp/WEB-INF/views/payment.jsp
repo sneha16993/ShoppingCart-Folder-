@@ -4,6 +4,28 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<style>
+.button {
+    background-color: white; /* Green */
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.button1 {
+    background-color: white; 
+    color: black; 
+    border: 2px solid #008CBA;
+}
+</style>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -15,7 +37,7 @@
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
-<title>Insert title here</title>
+<title>Payment</title>
 <style>
 body{
 background-image: url(resources/images/cart9.jpg);
@@ -51,7 +73,7 @@ font-family: "Times New Roman", Times, serif;
 <div class="container" style="align:center; margin: 20px 0px 0px 0px">
            
             <div class="row cart-body" style="align:center; margin: 0px 230px 0px 0px">
-                <form class="form-horizontal" method="post" action="">
+                <form class="form-horizontal" method="post" action="thanks">
               
                  
                
@@ -71,48 +93,49 @@ font-family: "Times New Roman", Times, serif;
                                     <input type="text" class="form-control" required="true" name="country" value="" />
                                 </div>
                             </div>
-                            <div class="form-group">
+                         
+		                           <div class="form-group">
                                 <div class="col-md-6 col-xs-12">
                                     <strong>First Name:</strong>
-                                    <input type="text" name="first_name" class="form-control" value="" />
+                                    <input type="text" name="first_name" class="form-control" value="" required="true"/>
                                 </div>
                                 <div class="span1"></div>
                                 <div class="col-md-6 col-xs-12">
                                     <strong>Last Name:</strong>
-                                    <input type="text" name="last_name" class="form-control" value="" />
+                                    <input type="text" name="last_name" class="form-control" value="" required="true" />
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-md-12"><strong>Address:</strong></div>
                                 <div class="col-md-12">
-                                    <input type="text" name="address" class="form-control" value="" />
+                                    <input type="text" name="address" class="form-control" value="" required="true" />
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-md-12"><strong>City:</strong></div>
                                 <div class="col-md-12">
-                                    <input type="text" name="city" class="form-control" value="" />
+                                    <input type="text" name="city" class="form-control" value="" required="true" />
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-md-12"><strong>State:</strong></div>
                                 <div class="col-md-12">
-                                    <input type="text" name="state" class="form-control" value="" />
+                                    <input type="text" name="state" class="form-control" value="" required="true" />
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-md-12"><strong>Zip / Postal Code:</strong></div>
                                 <div class="col-md-12">
-                                    <input type="text" name="zip_code" class="form-control" value="" />
+                                    <input type="text" name="zip_code" pattern="[0-9]{6}" class="form-control" value="" required="true" />
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-md-12"><strong>Phone Number:</strong></div>
-                                <div class="col-md-12"><input type="text" name="phone_number" class="form-control" value="" /></div>
+                                <div class="col-md-12"><input type="text" name="phone_number" pattern="[0-9]{10}"class="form-control" value="" required="true"/></div>
                             </div>
                             <div class="form-group">
                                 <div class="col-md-12"><strong>Email Address:</strong></div>
-                                <div class="col-md-12"><input type="text" name="email_address" class="form-control" value="" /></div>
+                                <div class="col-md-12"><input type="email" name="email_address" class="form-control" value="" required="true" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"/></div>
                             </div>
                         </div>
                     </div>
@@ -124,7 +147,7 @@ font-family: "Times New Roman", Times, serif;
                             <div class="form-group">
                                 <div class="col-md-12"><strong>Card Type:</strong></div>
                                 <div class="col-md-12">
-                                    <select id="CreditCardType" name="CreditCardType" class="form-control">
+                                    <select id="CreditCardType" name="CreditCardType" class="form-control" >
                                         <option value="5">Visa</option>
                                         <option value="6">MasterCard</option>
                                         <option value="7">American Express</option>
@@ -133,19 +156,20 @@ font-family: "Times New Roman", Times, serif;
                                 </div>
                             </div>
                             <div class="form-group">
-                                <div class="col-md-12"><strong>Credit Card Number:</strong></div>
-                                <div class="col-md-12"><input type="text" class="form-control" name="car_number" value="" /></div>
+                                <div class="span3">
+<strong>Credit Card Number:</strong></div>
+<div class="col-md-12"><input type="text" class="form-control" pattern="[0-9]{16}"name="car_code" value="" required="true"/></div>
                             </div>
-                            <div class="form-group">
+          <div class="form-group">
                                 <div class="col-md-12"><strong>Card CVV:</strong></div>
-                                <div class="col-md-12"><input type="text" class="form-control" name="car_code" value="" /></div>
+                                <div class="col-md-12"><input type="text" class="form-control" pattern="[0-9]{3}"name="car_code" value="" required="true"/></div>
                             </div>
                             <div class="form-group">
                                 <div class="col-md-12">
                                     <strong>Expiration Date</strong>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                    <select class="form-control" name="">
+                                    <select class="form-control" name="" required="true">
                                         <option value="">Month</option>
                                         <option value="01">01</option>
                                         <option value="02">02</option>
@@ -162,7 +186,7 @@ font-family: "Times New Roman", Times, serif;
                                 </select>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                    <select class="form-control" name="">
+                                    <select class="form-control" name="" required="true">
                                         <option value="">Year</option>
                                         <option value="2015">2015</option>
                                         <option value="2016">2016</option>
@@ -193,11 +217,8 @@ font-family: "Times New Roman", Times, serif;
                             </div>
                             <div class="form-group">
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                   
-                                    	<a href="thanks" type="submit" class="btn btn-success btn-block">
-								Place Order
-							</a>
-                                </div>
+                            <input type="submit" class="btn btn-info" value="Place Order">
+                                                 </div>
                             </div>
                         </div>
                     </div>
